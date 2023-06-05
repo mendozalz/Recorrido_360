@@ -1,0 +1,49 @@
+[data-source] {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  #iframespot{
+  }
+  
+  #iframeselect {
+    position: absolute;
+    width: 120px;
+    margin-left: -140px;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0.95;
+  }
+  
+  
+  #iframeselect li{
+    width: 100%;
+    padding: 1em;
+    font-size: 12px;
+    text-align: center;
+    background-color: #444;
+    color: #ddd;
+    transition: .3s background-color ease-in-out,
+                .3s color ease-in-out;
+  }
+  
+  #iframeselect li:hover{
+    background-color: #666;
+    color: #fff;
+  }
+  
+  #iframespot {
+    background-color: #444;
+    position: relative;
+    width: 680px;
+    height: 400px;
+  }
+  
+  #iframespot .message {
+    text-align: center;
+    padding-top: 165px;
+    font-size: 70px;
+    color: #ddd;
+  }
+
+  

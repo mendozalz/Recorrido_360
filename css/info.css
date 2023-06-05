@@ -36,14 +36,24 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -30px;
+    top: -30px;
     transition: all .2s ease-in-out;
   }
   
   #info .closeIcon {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
+  }
+
+  #info .inner_icon.closeIcon{
+    left: -15px;
+    top: -35px;
+  }
+
+  .closeIcon .icon1, .closeIcon .icon2{
+    transform: rotate(0deg);
+    transform-origin: center center;
   }
   
   #info .icon1 {
@@ -68,8 +78,8 @@
   
   #info .tip, #info .content {
     position: absolute;
-    left: 100px;
-    top: 10px;
+    left: 50px;
+    top: -15px;
     width: 280px;
   
     background-color: white;
@@ -196,4 +206,5 @@
     background-color: #25aae1;
     border: 2px solid #25aae1;
     color: #fff;
+    width: 100%;
   }

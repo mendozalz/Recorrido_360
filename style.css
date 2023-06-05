@@ -415,24 +415,24 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 /* Prevent tooltip from triggering */
-.link-hotspot-tooltip {
+/* .link-hotspot-tooltip {
   pointer-events: none;
 }
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
   pointer-events: all;
-}
+} */
 
 /* Fallback mode without pointer-events (IE8-10) */
-.tooltip-fallback .link-hotspot-tooltip {
+/* .tooltip-fallback .link-hotspot-tooltip {
   display: none;
 }
 .no-touch .tooltip-fallback .link-hotspot:hover .link-hotspot-tooltip {
   display: block;
-}
+} */
 
 /* Info hotspot */
 
-.info-hotspot {
+/* .info-hotspot {
   line-height: 1.2em;
   opacity: 0.9;
   -webkit-transition: opacity 0.2s 0.2s;
@@ -604,9 +604,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow-y: auto;
-  visibility: hidden;
+  visibility: hidden; */
   /* rotate(90deg) causes transition flicker on Firefox 58 */
-  -ms-transform: perspective(200px) rotateX(-89.999deg);
+ /*  -ms-transform: perspective(200px) rotateX(-89.999deg);
   -webkit-transform: perspective(200px) rotateX(-89.999deg);
   transform: perspective(200px) rotateX(-89.999deg);
   -ms-transform-origin: 50% 0 0;
@@ -640,7 +640,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               -webkit-transform 0.3s 0.3s,
               transform 0.3s 0.3s,
               visibility 0s 0s;
-}
+} */
 
 /* Info hotspot modal */
 
@@ -1035,3 +1035,4 @@ body.view-control-buttons .viewControlButton {
   border: 2px solid #25aae1;
   color: #fff;
 }
+
