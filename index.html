@@ -70,5 +70,88 @@
 <script src="index.js"></script>
 <script src="./js/pantalla.js"></script>
 
+ <!-- Codigo para obtener el "yaw" y el "pitch" --> 
+
+<!-- <style>
+  .circledot{
+    height: 18px;
+    width: 18px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:1;
+  }
+  
+  .biggestdot{
+    height: 15px;
+    width: 15px;
+    background-color: #abcdef;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:1;
+  }
+  
+   .biggerdot{
+    height: 10px;
+    width: 10px;
+    background-color: #abbddd;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:1;
+  }
+  
+   .dot {
+    height: 5px;
+    width: 5px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:1;
+  }
+  
+  </style>
+  
+  <span class="circledot"></span>
+  
+  <span class="biggestdot"></span>
+  
+  <span class="biggerdot"></span>
+  
+  <span class="dot" id="dotje"></span> -->
+  
+  <!-- <script>
+  
+  document.getElementById('dotje').addEventListener('click', function(e) {
+  
+    var lOutputString  = "\"new_scene_view_params\": { \"yaw\": " + marzipano_viewer.view().screenToCoordinates({ x: e.clientX, y: e.clientY }).yaw + ", ";
+  
+    var lOutputString = lOutputString +             "\"pitch\": " + marzipano_viewer.view().screenToCoordinates({ x: e.clientX, y: e.clientY }).pitch + ", ";
+  
+    var lOutputString = lOutputString + "\"roll\": 0, \"fov\": 0.0 }";
+  
+    console.log(lOutputString); 
+  
+    window.prompt("Here are the values you are looking for;",lOutputString);
+  
+  });
+  
+  </script> -->
+
 </body>
 </html>

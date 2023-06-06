@@ -202,6 +202,13 @@
     sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
 
+  /* Codigo para obtener el "yaw" y el "pitch" */
+
+  /* function updateSceneName(scene) {
+    sceneNameElement.innerHTML = sanitize(scene.data.name);   
+    window.marzipano_viewer = viewer;
+  } */
+
   function updateSceneList(scene) {
     for (var i = 0; i < sceneElements.length; i++) {
       var el = sceneElements[i];
