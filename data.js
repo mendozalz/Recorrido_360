@@ -49,8 +49,8 @@ var APP_DATA = {
           </ul>`,
         },
         {
-          yaw: 3.0090053285160687,
-          pitch: -0.3115540844326272,
+          /* yaw: 3.0090053285160687,
+          pitch: -0.3115540844326272, */
           title: "Pantalla",
           text: `<div id="iframespot">
           <div class="message">Select something to play!</div>

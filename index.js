@@ -196,18 +196,25 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
+    var container = scene.scene.hotspotContainer();
+
+    // Create hotspot with different sources.
+container.createHotspot(document.getElementById('iframespot'), { yaw: 2.531145681592959, pitch: -0.096580900283604 },
+{ perspective: { radius: 700, extraTransforms: "rotateX(8.5deg) rotateY(-35deg)" }});
+container.createHotspot(document.getElementById('iframeselect'), { yaw: 3.2090053285160687, pitch: -0.3115540844326272 });
+
   }
 
-  function updateSceneName(scene) {
+  /* function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);
-  }
+  } */
 
   /* Codigo para obtener el "yaw" y el "pitch" */
 
-  /* function updateSceneName(scene) {
+  function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);   
     window.marzipano_viewer = viewer;
-  } */
+  }
 
   function updateSceneList(scene) {
     for (var i = 0; i < sceneElements.length; i++) {
@@ -309,13 +316,6 @@
     var header = document.createElement('div');
     header.classList.add('info-hotspot-header');
 
-    // Create image element.
-    /* var iconWrapper = document.createElement('div');
-    iconWrapper.classList.add('info-hotspot-icon-wrapper');
-    var icon = document.createElement('img');
-    icon.src = 'img/info.png';
-    icon.classList.add('info-hotspot-icon');
-    iconWrapper.appendChild(icon); */
 
     // Create title element.
     var titleWrapper = document.createElement('div');
@@ -333,10 +333,6 @@
     closeIcon.classList.add('info-hotspot-close-icon');
     closeWrapper.appendChild(closeIcon);
 
-    // Construct header element.
-    /* header.appendChild(iconWrapper);
-    header.appendChild(titleWrapper);
-    header.appendChild(closeWrapper); */
 
     // Create text element.
     var text = document.createElement('div');
@@ -405,109 +401,4 @@
 
 })();
 
-/* Custom Modal */
-
-function createInfoHotspotElementP(hotspot) {
-  if(hotspot.hasOwnProperty('popup'))
-  {
-var wrapper = document.createElement('div');
-wrapper.classList.add('info-hotspot');
-var header = document.createElement('div');
-header.classList.add('info-hotspot-header');
-header.classList.add('noHoverp');
-var iconWrapper = document.createElement('div');
-iconWrapper.classList.add('info-hotspot-icon-wrapper');
-var icon = document.createElement('img');
-icon.src = 'img/info.png';
-icon.classList.add('info-hotspot-icon');
-iconWrapper.appendChild(icon);
-header.appendChild(iconWrapper);
-wrapper.appendChild(header);
-
-var modal = document.getElementById("myModal");
-var modalImg = document.getElementById("img01");
-wrapper.onclick = function(){
-modal.style.display = "block";
-modalImg.src = hotspot.popup;
-}
-var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-modal.style.display = "none";
-}
-
-return wrapper;
-  }
-  else
-{
-// Create wrapper element to hold icon and tooltip.
-var wrapper = document.createElement('div');
-wrapper.classList.add('hotspot');
-wrapper.classList.add('info-hotspot');
-
-// Create hotspot/tooltip header.
-var header = document.createElement('div');
-header.classList.add('info-hotspot-header');
-
-// Create image element.
-var iconWrapper = document.createElement('div');
-iconWrapper.classList.add('info-hotspot-icon-wrapper');
-var icon = document.createElement('img');
-icon.src = 'img/info.png';
-icon.classList.add('info-hotspot-icon');
-iconWrapper.appendChild(icon);
-
-// Create title element.
-var titleWrapper = document.createElement('div');
-titleWrapper.classList.add('info-hotspot-title-wrapper');
-var title = document.createElement('div');
-title.classList.add('info-hotspot-title');
-title.innerHTML = hotspot.title;
-titleWrapper.appendChild(title);
-
-// Create close element.
-var closeWrapper = document.createElement('div');
-closeWrapper.classList.add('info-hotspot-close-wrapper');
-var closeIcon = document.createElement('img');
-closeIcon.src = 'img/close.png';
-closeIcon.classList.add('info-hotspot-close-icon');
-closeWrapper.appendChild(closeIcon);
-
-// Construct header element.
-header.appendChild(iconWrapper);
-header.appendChild(titleWrapper);
-header.appendChild(closeWrapper);
-
-// Create text element.
-var text = document.createElement('div');
-text.classList.add('info-hotspot-text');
-text.innerHTML = hotspot.text;
-
-// Place header and text into wrapper element.
-wrapper.appendChild(header);
-wrapper.appendChild(text);
-
-// Create a modal for the hotspot content to appear on mobile mode.
-var modal = document.createElement('div');
-modal.innerHTML = wrapper.innerHTML;
-modal.classList.add('info-hotspot-modal');
-document.body.appendChild(modal);
-
-var toggle = function() {
-wrapper.classList.toggle('visible');
-modal.classList.toggle('visible');
-};
-
-// Show content when hotspot is clicked.
-wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
-
-// Hide content when close icon is clicked.
-modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
-
-// Prevent touch and scroll events from reaching the parent element.
-// This prevents the view control logic from interfering with the hotspot.
-stopTouchAndScrollEventPropagation(wrapper);
-
-return wrapper;
-}
-}
 
