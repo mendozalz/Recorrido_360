@@ -1,69 +1,6 @@
 var APP_DATA = {
   scenes: [
     {
-      id: "p-2",
-      name: "Pantalla-2",
-      levels: [
-        {
-          tileSize: 256,
-          size: 256,
-          fallbackOnly: true,
-        },
-        {
-          tileSize: 512,
-          size: 512,
-        },
-        {
-          tileSize: 512,
-          size: 1024,
-        },
-        {
-          tileSize: 512,
-          size: 2048,
-        },
-      ],
-      faceSize: 2000,
-      initialViewParameters: {
-        pitch: 0,
-        yaw: 3.0707963267948966, // Parametro para vista inicial predeterminada
-        fov: 1.5707963267948966,
-      },
-      linkHotspots: [
-        {
-          yaw: 0.03550224583630701,
-          pitch: -0.009671374399170318,
-          rotation: 0,
-          target: "p-1"
-        }
-      ],
-      infoHotspots: [
-        {
-          yaw: -1.5136909498306146,
-          pitch: -0.1459368508707204,
-          title: "Sala de descanso<br>",
-          text: `<div id="reveal">
-          <img src="img/photo.png">
-          <div class="reveal-content">
-            <img src="img/Cuadro.jpeg">
-            <p>Lorem Ipsum.</p>
-          </div>
-        </div>`,
-        },
-        {
-          yaw: 1.1837348111125193,
-          pitch: -0.23589489535444024,
-          title: "Cuadro",
-          text: `<div id="rotate-hotspot" class="rotate-hotspot">
-          <div class="rotate-img"></div>
-          <div class="rotate-content">
-            <h1>Garantias Comunitaria</h1>
-            <p>Una empresa solida y técnologica</p>
-          </div>
-        </div>`,
-        },
-      ],
-    },
-    {
       id: "p-1",
       name: "Pantalla-1",
       levels: [
@@ -170,7 +107,69 @@ var APP_DATA = {
         },
       ],
     },
-
+    {
+      id: "p-2",
+      name: "Pantalla-2",
+      levels: [
+        {
+          tileSize: 256,
+          size: 256,
+          fallbackOnly: true,
+        },
+        {
+          tileSize: 512,
+          size: 512,
+        },
+        {
+          tileSize: 512,
+          size: 1024,
+        },
+        {
+          tileSize: 512,
+          size: 2048,
+        },
+      ],
+      faceSize: 2000,
+      initialViewParameters: {
+        pitch: 0,
+        yaw: 3.0707963267948966, // Parametro para vista inicial predeterminada
+        fov: 1.5707963267948966,
+      },
+      linkHotspots: [
+        {
+          yaw: 0.03550224583630701,
+          pitch: -0.009671374399170318,
+          rotation: 0,
+          target: "p-1",
+        },
+      ],
+      infoHotspots: [
+        {
+          yaw: -1.5136909498306146,
+          pitch: -0.1459368508707204,
+          title: "Sala de descanso<br>",
+          text: `<div id="reveal">
+          <img src="img/photo.png">
+          <div class="reveal-content">
+            <img src="img/Cuadro.jpeg">
+            <p>Lorem Ipsum.</p>
+          </div>
+        </div>`,
+        },
+        {
+          yaw: 1.1837348111125193,
+          pitch: -0.23589489535444024,
+          title: "Cuadro",
+          text: `<div id="rotate-hotspot" class="rotate-hotspot">
+          <div class="rotate-img"></div>
+          <div class="rotate-content">
+            <h1>Garantias Comunitaria</h1>
+            <p>Una empresa solida y técnologica</p>
+          </div>
+        </div>`,
+        },
+      ],
+    },
     {
       id: "p-3",
       name: "Pantalla-3",
@@ -210,7 +209,7 @@ var APP_DATA = {
           yaw: 1.573554719757805,
           pitch: -0.23095491364383136,
           title: "Nodo",
-          text: ""
+          text: "",
         },
       ],
     },
