@@ -1,7 +1,7 @@
 var APP_DATA = {
   scenes: [
     {
-      id: "1-360-3",
+      id: "p-2",
       name: "Pantalla-2",
       levels: [
         {
@@ -33,29 +33,10 @@ var APP_DATA = {
           yaw: 0.03550224583630701,
           pitch: -0.009671374399170318,
           rotation: 0,
-          target: "2-13575177283_f2d2c56a5f_b",
-        },
+          target: "p-1"
+        }
       ],
       infoHotspots: [
-        {
-          yaw: 3.0090053285160687,
-          pitch: -0.3115540844326272,
-          title: "Pantalla",
-          text: `<ul id="iframeselect">
-          <li data-source="googleMaps">Google Maps</li>
-          <li data-source="youtube">YouTube</li>
-          <li data-source="youtubeWithControls">YouTube (UI)</li>
-          <li data-source="koloreyes">KolorEyes</li>
-          </ul>`,
-        },
-        {
-          /* yaw: 3.0090053285160687,
-          pitch: -0.3115540844326272, */
-          title: "Pantalla",
-          text: `<div id="iframespot">
-          <div class="message">Select something to play!</div>
-          </div>`,
-        },
         {
           yaw: -1.5136909498306146,
           pitch: -0.1459368508707204,
@@ -83,7 +64,7 @@ var APP_DATA = {
       ],
     },
     {
-      id: "0-360-1",
+      id: "p-1",
       name: "Pantalla-1",
       levels: [
         {
@@ -115,13 +96,13 @@ var APP_DATA = {
           yaw: -2.4140189766081637,
           pitch: 0.12442692007672207,
           rotation: 0,
-          target: "1-360-3",
+          target: "p-3",
         },
         {
           yaw: -0.7286822755952276,
           pitch: 0.08066489563821833,
           rotation: 0,
-          target: "2-13575177283_f2d2c56a5f_b",
+          target: "p-2",
         },
       ],
       infoHotspots: [
@@ -189,8 +170,9 @@ var APP_DATA = {
         },
       ],
     },
+
     {
-      id: "2-13575177283_f2d2c56a5f_b",
+      id: "p-3",
       name: "Pantalla-3",
       levels: [
         {
@@ -214,13 +196,13 @@ var APP_DATA = {
           yaw: -1.4647547425610252,
           pitch: -0.11677829019217789,
           rotation: 0,
-          target: "0-360-1",
+          target: "p-1",
         },
         {
           yaw: -2.8319587293106085,
           pitch: -0.10324738918280829,
           rotation: 0,
-          target: "1-360-3",
+          target: "p-2",
         },
       ],
       infoHotspots: [
@@ -228,7 +210,7 @@ var APP_DATA = {
           yaw: 1.573554719757805,
           pitch: -0.23095491364383136,
           title: "Nodo",
-          text: "<strong>Lorem Ipsum</strong> es simplemente el texto de relleno de las imprentas y archivos de texto.",
+          text: ""
         },
       ],
     },
