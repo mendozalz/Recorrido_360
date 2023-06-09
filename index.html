@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Project Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="./css/hint.css">
-<link rel="stylesheet" href="css/tooltip.css">
-<link rel="stylesheet" href="./css/info.css">
-<link rel="stylesheet" href="./css/textInfo.css">
-<link rel="stylesheet" href="./css/rotate.css">
-<link rel="stylesheet" href="./css/reveal.css">
-<link rel="stylesheet" href="./css/pantalla.css">
-<script defer src="./js/info.js"></script>
-<!-- <script defer src="./js/tooltip.js" ></script> -->
+  <title>Project Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+  <style>
+    @-ms-viewport {
+      width: device-width;
+    }
+  </style>
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/hint.css">
+  <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="./css/info.css">
+  <link rel="stylesheet" href="./css/textInfo.css">
+  <link rel="stylesheet" href="./css/rotate.css">
+  <link rel="stylesheet" href="./css/reveal.css">
+  <link rel="stylesheet" href="./css/pantalla.css">
+  <link rel="icon" type="image/x-icon" href="./img/close.png">
+  <script defer src="./js/info.js"></script>
+  <!-- <script defer src="./js/tooltip.js" ></script> -->
 </head>
 
 <body class="multiple-scenes view-control-buttons">
 
-<div id="pano"></div>
+  <div id="pano" class="pano"></div>
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="p-1">
+  <div id="sceneList">
+    <ul class="scenes">
+
+      <a href="#" class="scene" data-id="p-1">
         <li class="text">Pantalla-1</li>
       </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="p-2">
+
+      <a href="#" class="scene" data-id="p-2">
         <li class="text">Pantalla-2</li>
       </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="p-3">
+
+      <a href="#" class="scene" data-id="p-3">
         <li class="text">Pantalla-3</li>
       </a>
-    
-  </ul>
-</div>
-
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
-
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
-
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
-
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
-
-
-
-<!-- Hotspot embebido -->
-<div id="embebido">
-  <div id="iframespot">
-    <div class="message">Selecciona en el menu de la derecha!</div>
-  </div>
-  
-  <div id="iframeselect">
-    <ul>
-      <li data-source="gc1">Video#1</li>
-      <li data-source="gc2">Video #2</li>
-      <li data-source="gc3">Vieo #3</li>
     </ul>
   </div>
-  
-</div>
+
+  <div id="titleBar">
+    <h1 class="sceneName"></h1>
+  </div>
+
+  <a href="#" id="autorotateToggle">
+    <img class="icon off" src="img/play.png">
+    <img class="icon on" src="img/pause.png">
+  </a>
+
+  <!-- Se agrega la etiqueta btn dentro de un anchor para que de manera automatica JS lo pueda auto ejecutar cuando la web se cargue -->
+  <div href="#" id="audioBackGround">
+    <!-- aqui va codigo JS -->
+  </div>
+
+  <a href="#" id="fullscreenToggle">
+    <img class="icon off" src="img/fullscreen.png">
+    <img class="icon on" src="img/windowed.png">
+  </a>
+
+  <a href="#" id="sceneListToggle">
+    <img class="icon off" src="img/expand.png">
+    <img class="icon on" src="img/collapse.png">
+  </a>
 
 
-  <script src="vendor/screenfull.min.js" ></script>
-  <script src="vendor/bowser.min.js" ></script>
-  <script src="vendor/marzipano.js" ></script>
-  
+  <!-- Hotspot embebido -->
+  <div id="embebido">
+    <div id="iframespot">
+      <div class="message">Selecciona en el menu de la derecha!</div>
+    </div>
+
+    <div id="iframeselect">
+      <ul>
+        <li data-source="gc1">Video #1</li>
+        <li data-source="gc2">Video #2</li>
+        <li data-source="gc3">Vieo #3</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="vendor/screenfull.min.js"></script>
+  <script src="vendor/bowser.min.js"></script>
+  <script src="vendor/marzipano.js"></script>
+
   <script src="data.js"></script>
   <script src="index.js"></script>
   <script src="./js/pantalla.js"></script>
 
- <!-- Codigo para obtener el "yaw" y el "pitch" --> 
+  <!-- Codigo para obtener el "yaw" y el "pitch" -->
 
-<!-- <style>
+  <!-- <style>
   .circledot{
     height: 18px;
     width: 18px;
@@ -170,4 +179,5 @@
   </script> -->
 
 </body>
+
 </html>

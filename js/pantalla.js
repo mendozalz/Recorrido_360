@@ -1,6 +1,3 @@
-console.log("pantalla");
-
-
 // Create hotspot with different sources.
 document.getElementById('iframespot'), { yaw: 0.0335, pitch: -0.102 },
   { perspective: { radius: 1645, extraTransforms: "rotateX(5deg)" }};

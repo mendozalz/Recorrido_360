@@ -16,23 +16,57 @@
 "use strict";
 
 (function () {
-  var Marzipano = window.Marzipano;
-  var bowser = window.bowser;
-  var screenfull = window.screenfull;
-  var data = window.APP_DATA;
+  const Marzipano = window.Marzipano;
+  const bowser = window.bowser;
+  const screenfull = window.screenfull;
+  const data = window.APP_DATA;
 
   // Grab elements from DOM.
-  var panoElement = document.querySelector("#pano");
-  var sceneNameElement = document.querySelector("#titleBar .sceneName");
-  var sceneListElement = document.querySelector("#sceneList");
-  var sceneElements = document.querySelectorAll("#sceneList .scene");
-  var sceneListToggleElement = document.querySelector("#sceneListToggle");
-  var autorotateToggleElement = document.querySelector("#autorotateToggle");
-  var fullscreenToggleElement = document.querySelector("#fullscreenToggle");
+  const panoElement = document.querySelector("#pano");
+  const sceneNameElement = document.querySelector("#titleBar .sceneName");
+  const sceneListElement = document.querySelector("#sceneList");
+  const sceneElements = document.querySelectorAll("#sceneList .scene");
+  const sceneListToggleElement = document.querySelector("#sceneListToggle");
+  const autorotateToggleElement = document.querySelector("#autorotateToggle");
+  const fullscreenToggleElement = document.querySelector("#fullscreenToggle");
+  const idAudio = document.querySelector("#audioBackGround");
+  const btnToggle = document.createElement("button");
+  const sonido = new Audio("./audio/lofi-girl-dreams.mp3");
+  sonido.volume = 0.5;
+  sonido.loop = true;
+  const iconToggle = document.createElement("img");
+
+  /* Cargar Audio de manera oculta*/
+
+  let audioReproducido = false;
+  let audioActivado = false;
+  document.body.addEventListener("click", function () {
+    if (!audioReproducido) {
+        sonido.play();
+        audioActivado = true;
+      }
+      audioReproducido = true;
+  });
+
+  function toggleAudio() {
+    if (sonido.paused) {
+      sonido.play();
+    } else {
+      sonido.pause();
+    }
+  }
+
+  idAudio.appendChild(btnToggle);
+  btnToggle.id = "btnToggle";
+  btnToggle.className = "activo";
+  btnToggle.appendChild(iconToggle);
+  iconToggle.className = "iconPp";
+  iconToggle.src = "img/btnPP.png";
+  btnToggle.addEventListener("click", toggleAudio);
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
-    var setMode = function () {
+    const setMode = function () {
       if (mql.matches) {
         document.body.classList.remove("desktop");
         document.body.classList.add("mobile");
@@ -41,7 +75,7 @@
         document.body.classList.add("desktop");
       }
     };
-    var mql = matchMedia("(max-width: 500px), (max-height: 500px)");
+    const mql = matchMedia("(max-width: 500px), (max-height: 500px)");
     setMode();
     mql.addListener(setMode);
   } else {
@@ -61,35 +95,35 @@
   }
 
   // Viewer options.
-  var viewerOpts = {
+  const viewerOpts = {
     controls: {
       mouseViewMode: data.settings.mouseViewMode,
     },
   };
 
   // Initialize viewer.
-  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+  const viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
   // Create scenes.
-  var scenes = data.scenes.map(function (data) {
-    var urlPrefix = "tiles";
-    var source = Marzipano.ImageUrlSource.fromString(
+  const scenes = data.scenes.map(function (data) {
+    const urlPrefix = "tiles";
+    const source = Marzipano.ImageUrlSource.fromString(
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" }
     );
-    var geometry = new Marzipano.CubeGeometry(data.levels);
+    const geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.traditional(
+    const limiter = Marzipano.RectilinearView.limit.traditional(
       data.faceSize,
       (100 * Math.PI) / 180,
       (120 * Math.PI) / 180
     );
-    var view = new Marzipano.RectilinearView(
+    const view = new Marzipano.RectilinearView(
       data.initialViewParameters,
       limiter
     );
 
-    var scene = viewer.createScene({
+    const scene = viewer.createScene({
       source: source,
       geometry: geometry,
       view: view,
@@ -99,29 +133,39 @@
     // Display scene.
     scene.switchTo();
 
-
-    if(data.id==="p-2"){
-
+    if (data.id === "p-2") {
       // Get the hotspot container for scene.
-    var container = scene.hotspotContainer();
+      const container = scene.hotspotContainer();
 
-    // Create hotspot with different sources.
-    container.createHotspot(
-      document.getElementById("iframespot"),
-      {  yaw: 2.485112484090731, pitch:  -0.11081176956919435, },
-      { perspective: { radius: 790, extraTransforms: "rotateX(6.5deg) rotateY(-37deg)" } }
-    );
-    container.createHotspot(document.getElementById("iframeselect"), {
-      yaw: 3.35,
-      pitch:  -0.29790759638527675,
-    },
-    { perspective: { radius: 590, extraTransforms: "rotateX(20deg) rotateY(10deg)" } }
-    )
+      // Create hotspot with different sources.
+      container.createHotspot(
+        document.getElementById("iframespot"),
+        { yaw: 2.485112484090731, pitch: -0.11081176956919435 },
+        {
+          perspective: {
+            radius: 790,
+            extraTransforms: "rotateX(6.5deg) rotateY(-37deg)",
+          },
+        }
+      );
+      container.createHotspot(
+        document.getElementById("iframeselect"),
+        {
+          yaw: 3.35,
+          pitch: -0.29790759638527675,
+        },
+        {
+          perspective: {
+            radius: 590,
+            extraTransforms: "rotateX(20deg) rotateY(10deg)",
+          },
+        }
+      );
     }
 
     // Create link hotspots.
     data.linkHotspots.forEach(function (hotspot) {
-      var element = createLinkHotspotElement(hotspot);
+      const element = createLinkHotspotElement(hotspot);
       scene
         .hotspotContainer()
         .createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -129,7 +173,7 @@
 
     // Create info hotspots.
     data.infoHotspots.forEach(function (hotspot) {
-      var element = createInfoHotspotElement(hotspot);
+      const element = createInfoHotspotElement(hotspot);
       scene
         .hotspotContainer()
         .createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -143,13 +187,13 @@
   });
 
   // Set up autorotate, if enabled.
-  var autorotate = Marzipano.autorotate({
+  const autorotate = Marzipano.autorotate({
     yawSpeed: 0.03,
     targetPitch: 0,
     targetFov: Math.PI / 2,
   });
   if (data.settings.autorotateEnabled) {
-    autorotateToggleElement.classList.add("disbled");
+    autorotateToggleElement.classList.add("disabled");
   }
 
   // Set handler for autorotate toggle.
@@ -182,7 +226,7 @@
 
   // Set handler for scene switch.
   scenes.forEach(function (scene) {
-    var el = document.querySelector(
+    const el = document.querySelector(
       '#sceneList .scene[data-id="' + scene.data.id + '"]'
     );
     el.addEventListener("click", function () {
@@ -195,9 +239,8 @@
   });
 
   // Dynamic parameters for controls.
-  var velocity = 0.7;
-  var friction = 3;
-
+  const velocity = 0.7;
+  const friction = 3;
 
   function sanitize(s) {
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
@@ -212,7 +255,6 @@
     updateSceneList(scene);
   }
 
-
   /* Codigo para obtener el "yaw" y el "pitch" */
 
   function updateSceneName(scene) {
@@ -221,8 +263,8 @@
   }
 
   function updateSceneList(scene) {
-    for (var i = 0; i < sceneElements.length; i++) {
-      var el = sceneElements[i];
+    for (let i = 0; i < sceneElements.length; i++) {
+      const el = sceneElements[i];
       if (el.getAttribute("data-id") === scene.data.id) {
         el.classList.add("current");
       } else {
@@ -271,23 +313,23 @@
 
   function createLinkHotspotElement(hotspot) {
     // Create wrapper element to hold icon and tooltip.
-    var wrapper = document.createElement("div");
+    const wrapper = document.createElement("div");
     wrapper.classList.add("hotspot");
     wrapper.classList.add("link-hotspot");
 
     // Create image element.
-    var icon = document.createElement("img");
+    const icon = document.createElement("img");
     icon.src = "img/link.png";
     icon.classList.add("link-hotspot-icon");
 
     // Set rotation transform.
-    var transformProperties = [
+    const transformProperties = [
       "-ms-transform",
       "-webkit-transform",
       "transform",
     ];
-    for (var i = 0; i < transformProperties.length; i++) {
-      var property = transformProperties[i];
+    for (let i = 0; i < transformProperties.length; i++) {
+      const property = transformProperties[i];
       icon.style[property] = "rotate(" + hotspot.rotation + "rad)";
     }
 
@@ -301,7 +343,7 @@
     stopTouchAndScrollEventPropagation(wrapper);
 
     // Create tooltip element.
-    var tooltip = document.createElement("div");
+    const tooltip = document.createElement("div");
     tooltip.classList.add("hotspot-tooltip");
     tooltip.classList.add("link-hotspot-tooltip");
     tooltip.innerHTML = findSceneDataById(hotspot.target).name;
@@ -314,32 +356,32 @@
 
   function createInfoHotspotElement(hotspot) {
     // Create wrapper element to hold icon and tooltip.
-    var wrapper = document.createElement("div");
+    const wrapper = document.createElement("div");
     wrapper.classList.add("hotspot");
     wrapper.classList.add("info-hotspot");
 
     // Create hotspot/tooltip header.
-    var header = document.createElement("div");
+    const header = document.createElement("div");
     header.classList.add("info-hotspot-header");
 
     // Create title element.
-    var titleWrapper = document.createElement("div");
+    const titleWrapper = document.createElement("div");
     titleWrapper.classList.add("info-hotspot-title-wrapper");
-    var title = document.createElement("div");
+    const title = document.createElement("div");
     title.classList.add("info-hotspot-title");
     title.innerHTML = hotspot.title;
     titleWrapper.appendChild(title);
 
     // Create close element.
-    var closeWrapper = document.createElement("div");
+    const closeWrapper = document.createElement("div");
     closeWrapper.classList.add("info-hotspot-close-wrapper");
-    var closeIcon = document.createElement("img");
+    const closeIcon = document.createElement("img");
     closeIcon.src = "img/close.png";
     closeIcon.classList.add("info-hotspot-close-icon");
     closeWrapper.appendChild(closeIcon);
 
     // Create text element.
-    var text = document.createElement("div");
+    const text = document.createElement("div");
     text.classList.add("info-hotspot-text");
     text.innerHTML = hotspot.text;
 
@@ -348,12 +390,12 @@
     wrapper.appendChild(text);
 
     // Create a modal for the hotspot content to appear on mobile mode.
-    var modal = document.createElement("div");
+    const modal = document.createElement("div");
     modal.innerHTML = wrapper.innerHTML;
     modal.classList.add("info-hotspot-modal");
     document.body.appendChild(modal);
 
-    var toggle = function () {
+    const toggle = function () {
       wrapper.classList.toggle("visible");
       modal.classList.toggle("visible");
     };
@@ -372,7 +414,7 @@
 
   // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
-    var eventList = [
+     eventList = [
       "touchstart",
       "touchmove",
       "touchend",
@@ -380,7 +422,7 @@
       "wheel",
       "mousewheel",
     ];
-    for (var i = 0; i < eventList.length; i++) {
+    for (let i = 0; i < eventList.length; i++) {
       element.addEventListener(eventList[i], function (event) {
         event.stopPropagation();
       });
@@ -388,7 +430,7 @@
   }
 
   function findSceneById(id) {
-    for (var i = 0; i < scenes.length; i++) {
+    for (let i = 0; i < scenes.length; i++) {
       if (scenes[i].data.id === id) {
         return scenes[i];
       }
@@ -397,7 +439,7 @@
   }
 
   function findSceneDataById(id) {
-    for (var i = 0; i < data.scenes.length; i++) {
+    for (let i = 0; i < data.scenes.length; i++) {
       if (data.scenes[i].id === id) {
         return data.scenes[i];
       }
