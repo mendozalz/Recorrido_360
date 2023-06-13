@@ -130,21 +130,23 @@
       pinFirstLevel: true,
     });
 
-    // Display scene.
-    scene.switchTo();
+    // Mostrar escena
+/*     scene.switchTo();
+ */
+    /* Condicional para la creación de la pantalla con su perspectiva */
 
     if (data.id === "p-2") {
-      // Get the hotspot container for scene.
+      // Obteniendo el hotspot para la escena.
       const container = scene.hotspotContainer();
 
-      // Create hotspot with different sources.
+      // Crearndo hotspot para la pantalla en la pared.
       container.createHotspot(
         document.getElementById("iframespot"),
         { yaw: 2.485112484090731, pitch: -0.11081176956919435 },
         {
           perspective: {
             radius: 790,
-            extraTransforms: "rotateX(6.5deg) rotateY(-37deg)",
+            extraTransforms: "rotateX(6.5deg) rotateY(-37deg)", // Manjeo de la perspectiva
           },
         }
       );
