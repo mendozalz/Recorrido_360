@@ -6,9 +6,9 @@ document.getElementById('iframespot'), { yaw: 0.0335, pitch: -0.102 },
 
 // HTML sources.
 var hotspotHtml = {
-  gc1: '<iframe id="gc-1" width="675" height="390" src="https://www.youtube.com/embed/TaQzEoveuBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-  gc2: '<iframe id="gc-2" width="675" height="390" src="https://www.youtube.com/embed/kFnk4wp4Bts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-  gc3: '<iframe id="gc-3" width="675" height="390" src="https://www.youtube.com/embed/lRf-HFit_O4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  gc1: '<iframe id="gc-1" width="675" height="390" src="https://www.youtube.com/embed/PTp7xXqHIq0?si=APDNV1ylWT9F2d0R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+  gc2: '<iframe id="gc-2" width="675" height="390" src="https://www.youtube.com/embed/7i7V6rF5oc0?si=YqgXjEe59ZFzT5Xa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+  gc3: '<iframe id="gc-3" width="675" height="390" src="https://www.youtube.com/embed/hR0-A6t4gyo?si=yMriYsR2aXj-Y8dc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
 };
 
 // Switch sources when clicked.

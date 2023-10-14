@@ -57,7 +57,7 @@
 }
 
 #reveal:hover .reveal-content img {
-  width: 220px;
+  width: 175px;
   opacity: 1;
   transition: width 0.3s ease-in-out 0.4s, opacity 0.3s ease-in-out 0.4s;
 }

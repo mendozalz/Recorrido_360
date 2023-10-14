@@ -61,14 +61,14 @@ var APP_DATA = {
           </div>
           <div class="content">
           <div class="image-wrapper">
-             <img src="img/gc_calidad.jpg">
+             <img src="img/logo_bn.png">
           </div>
             <div class="content-form">
-              <p>Premio Iberoamericano de la Calidad 2022</p>
+              <p>Lorem Ipsum 2023</p>
               <div>
                 <input id="email" type="text" placeholder="Email">
               </div>
-              <p>Garantias Comunitarias</p>
+              <p>Lenin Mendoza</p>
             </div>
             <div class="button_wrapper">
               <button class="close">Enviar</button>
@@ -151,7 +151,7 @@ var APP_DATA = {
           text: `<div id="reveal">
           <img src="img/photo.png">
           <div class="reveal-content">
-            <img src="img/Cuadro.jpeg">
+            <img src="img/logo_bn.png">
             <p>Lorem Ipsum.</p>
           </div>
         </div>`,
@@ -163,8 +163,8 @@ var APP_DATA = {
           text: `<div id="rotate-hotspot" class="rotate-hotspot">
           <div class="rotate-img"></div>
           <div class="rotate-content">
-            <h1>Garantias Comunitaria</h1>
-            <p>Una empresa solida y técnologica</p>
+            <h1>Lenin Mendoza</h1>
+            <p>Front End Developer</p>
           </div>
         </div>`,
         },
